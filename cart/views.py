@@ -2,6 +2,7 @@ from django.shortcuts import render,redirect,get_object_or_404
 from shop.models import *
 from . models import *
 from django.core.exceptions import ObjectDoesNotExist
+from django.contrib.auth.models import User,auth
 # Create your views here.
 
 def cart_details(request,tot=0,count=0,cart_items=None):
@@ -14,6 +15,8 @@ def cart_details(request,tot=0,count=0,cart_items=None):
     except ObjectDoesNotExist:
         pass
     return render (request,'cart.html',{'ci':ct_items,'t':tot,'cn':count})
+
+
 
 def c_id(request):
     ct_id=request.session.session_key
@@ -55,3 +58,7 @@ def cart_delete(request,product_id):
     c_items=items.objects.get(prodt=prod,cart=ct)
     c_items.delete()
     return redirect('cartDetails')
+
+def logout(request):
+    auth.logout(request)
+    return redirect('/')

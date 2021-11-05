@@ -33,12 +33,13 @@
         <!-- ################################################################################################ -->
         <ul class="clear">
           <li class="text-white style="color: white;"><a href="/">Home</a></li>
+
+          
+          {% if user.is_authenticated %}
           {% if itc > 0 %}
           <li><a class="active" href="{% url 'cartDetails' %}"><i class="fa fa-shopping-cart" style="color: white; font-size: 18px;"> {{itc}}</i></a>
 
           {% endif %}
-          
-          {% if user.is_authenticated %}
           <li class="text-white">Hai {{user.first_name}}</li>
           <li><a class="active" style="color: white;" href="accounts/logout">Logout</a>
           {% else %}

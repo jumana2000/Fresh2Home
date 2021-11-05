@@ -1,5 +1,6 @@
 from django.core import paginator
-from django.shortcuts import get_object_or_404, render
+from django.contrib.auth.models import User,auth
+from django.shortcuts import get_object_or_404, render,redirect
 from .models import *
 from django.db.models import Q
 from django.core.paginator import Paginator, EmptyPage, InvalidPage
@@ -47,3 +48,11 @@ def searching(request):
         prod = products.objects.all().filter(Q(name__contains=query) | Q(desc__contains=query))
 
     return render(request, 'search.html', {'q': query, 'pr': prod})
+
+def logout(request,c_slug, product_slug):
+    auth.logout(request)
+    return redirect('/')
+
+def logout1(request,c_slug):
+    auth.logout(request)
+    return redirect('/')
