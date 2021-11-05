@@ -35,8 +35,7 @@
           <li class="text-white style="color: white;"><a href="/">Home</a></li>
           {% if itc > 0 %}
           <li><a class="active" href="{% url 'cartDetails' %}"><i class="fa fa-shopping-cart" style="color: white; font-size: 18px;"> {{itc}}</i></a>
-          {% else %}
-          <li style="color: white;">Cart</li>
+
           {% endif %}
           
           {% if user.is_authenticated %}
