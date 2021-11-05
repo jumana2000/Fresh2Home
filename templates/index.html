@@ -1,0 +1,163 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<html lang="">
+<!-- To declare your language - read more here: https://www.w3.org/International/questions/qa-html-language-declarations -->
+<head>
+<title>Sislaf</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<link href="{% static 'hm/layout/styles/layout.css' %}" rel="stylesheet" type="text/css" media="all">
+<style>
+  .dropbtn {
+  background-color: #4CAF50;
+  color: white;
+  padding: 16px;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+  padding-left: 56px;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown-content a:hover {background-color: #f1f1f1}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+.dropdown:hover .dropbtn {
+  background-color:  #3e8e41c;
+}
+  .abcd{
+    height: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+  
+</style>
+</head>
+<body id="top">
+
+  <div class="dropdown">
+    <button class="dropbtn">FILTER</button>
+    <div class="dropdown-content">
+    <a href="/">All Products</a>
+    {% for i in ct %}
+  
+    <a href={{i.get_url}}>{{i.name}}</a>
+  
+    {% endfor %}
+    </div>
+  </div>
+<!-- ################################################################################################ -->
+<!-- ################################################################################################ -->
+<!-- ################################################################################################ -->
+<!-- Top Background Image Wrapper -->
+<div class="abcd" style="background-image:url({% static 'hm/images/demo/backgrounds/bg.jpg' %})">
+  
+
+  <div id="pageintro" class="hoc clear">
+    <!-- ################################################################################################ -->
+    <article>
+    
+     
+      <div class="input-group" style="margin-top: 60px;">
+        <form action="{% url 'search' %}" method="get" style="margin:20px">
+        
+        <div class="form-outline">
+          <input type="search" name="q" placeholder="Enter the item name to search" id="form1" class="form-control" style="margin-left: 216px;" />
+          
+        </div>
+        <button style="margin-right: 50px;margin-top: -34px;" type="submit" class="btn btn-primary">
+          <i class="fas fa-search"></i>
+        </button>
+        
+      </form>
+      </div>
+    
+<br>
+      <h3 class="heading">QUALITY FOOD ITEMS</h3>
+      <p>Register with us and have quality food items at your door steps.</p>
+      <footer>
+
+      </footer>
+    </article>
+    <!-- ################################################################################################ -->
+  </div>
+  <!-- ################################################################################################ -->
+</div>
+
+
+
+<div class="row3">
+
+ 
+    <div class="row px-5 pt-5">
+      {% for i in pg.object_list %}
+      <div class="col-md-4 mt-4 mt-sm-0 card-container">
+        <div class="card text-center product p-4 pt-5 border-0 h-100 rounded-0">
+          <a href="{{i.get_url}}">
+          <img class="img-fluid d-block mx-auto" src="{{i.img.url}}" style="height: 300px; width: 350px;">
+        </a>
+          <div class="card-body p-4 py-0 h-xs-440p">
+            <h5 class="card-title font-weight-semi-bold mb-3 w-xl-220p mx-auto">{{i.name}}</h5>
+            <p class="price">{{i.price}}</p>
+          </div>
+          <a href="{{i.get_url}}">
+            <input type="submit" class="btn btn-dark btn-lg w-100" name="add-button" value="Buy Now">
+          </a>
+          <!-- <p class="btn w-100 px-4 mx-auto">  -->
+          <!-- </p> -->
+        </div>
+      </div>
+      {% endfor %}
+    </div> 
+
+    
+
+</div>
+
+<div style="margin-bottom: 30px;">
+
+  <center>
+    <br>
+    {% for p in pg.paginator.page_range %}
+  
+    <a href="?page={{p}}" class="btn btn-light btn-sm {% if pg.number == p %} active {% endif %}">{{p}}</a>
+    {% endfor %}
+    <center>
+
+    </div>
+
+
+<script src="{% static 'hm/layout/scripts/jquery.min.js' %}"></script>
+<script src="{% static 'hm/layout/scripts/jquery.backtotop.js' %}"></script>
+<script src="{% static 'hm/layout/scripts/jquery.mobilemenu.js' %}"></script>
+
+
+</body>
+</html>
+
+{% endblock %}

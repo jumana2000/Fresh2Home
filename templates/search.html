@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<html lang="">
+<!-- To declare your language - read more here: https://www.w3.org/International/questions/qa-html-language-declarations -->
+<head>
+<title>Sislaf</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<link href="{% static 'hm/layout/styles/layout.css' %}" rel="stylesheet" type="text/css" media="all">
+
+</head>
+<body>
+<div class="row3">
+    <div class="row px-5 pt-5">
+        {% for i in pr %}
+        <div class="col-md-4 mt-4 mt-sm-0 card-container">
+          <div class="card text-center product p-4 pt-5 border-0 h-100 rounded-0">
+            <a href="{{i.get_url}}">
+            <img class="img-fluid d-block mx-auto" src="{{i.img.url}}" style="height: 300px; width: 350px;">
+          </a>
+            <div class="card-body p-4 py-0 h-xs-440p">
+              <h5 class="card-title font-weight-semi-bold mb-3 w-xl-220p mx-auto">{{i.name}}</h5>
+              <p class="price">{{i.price}}</p>
+            </div>
+            <a href="{{i.get_url}}">
+              <input type="submit" class="btn btn-dark btn-lg w-100" name="add-button" value="Buy Now">
+            </a>
+            <!-- <p class="btn w-100 px-4 mx-auto">  -->
+            <!-- </p> -->
+          </div>
+        </div>
+        {% endfor %}
+      </div> 
+
+</div>
+
+<script src="{% static 'hm/layout/scripts/jquery.min.js' %}"></script>
+<script src="{% static 'hm/layout/scripts/jquery.backtotop.js' %}"></script>
+<script src="{% static 'hm/layout/scripts/jquery.mobilemenu.js' %}"></script>
+
+
+</body>
+</html>
+
+{% endblock %}

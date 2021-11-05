@@ -1,0 +1,79 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+</head>
+<body>
+
+<section class="bg-light">
+  <!-- <h1 class="text-info text-center">Please enter your details</h1> -->
+  <div class="container" style="padding: 2px;">
+    <div class="row">
+      <div class="col-12">
+        <form action="register" method="post">
+          {% csrf_token %}
+          <div class="form-row">
+            <div class="form-group col-md-6">
+              <label name="name" for="name">Firstname</label>
+              <input name="first_name" type="text" class="form-control" id="name" placeholder="Enter your first name">
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group col-md-6">
+              <label name="lastname" for="name">Lastname</label>
+              <input name="last_name" type="text" class="form-control" id="name" placeholder="Enter your last name">
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group col-md-6">
+              <label name="username" for="name">Username</label>
+              <input name="username" type="text" class="form-control" id="name" placeholder="Enter your username">
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group col-md-6">
+              <label name="email" for="email">Email</label>
+              <input type="email" name="email"class="form-control" id="email" placeholder="Enter your e-mail">
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group col-md-6">
+              <label name="password1" for="name">Password</label>
+              <input name="password1" type="password" class="form-control" id="name" placeholder="Enter your password">
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group col-md-6">
+              <label name="password2" for="name">Confirm Password</label>
+              <input name="password2" type="password" class="form-control" id="name" placeholder="Repeat your password">
+            </div>
+          </div>
+
+          <div class="form-row">
+          <div class="form-group col-md-6 text-center">
+         <button type="submit" class="btn btn-info"style="width: 100%">REGISTER</button>
+          </div>
+        </div>
+        </form>
+      </div>
+      </div>
+    </div>
+
+
+      </div>
+    </div>
+  </div>
+</section>
+<div>{% for message in messages%}<h3>{{message}}</h3>{% endfor %}</div>
+</body>
+</html>
+
+{% endblock %}
