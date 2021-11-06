@@ -9,6 +9,11 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 <link href="{% static 'hm/layout/styles/layout.css' %}" rel="stylesheet" type="text/css" media="all">
 <style>
+
+.box{
+    width: 100%;
+    text-align:center;
+}
   .dropbtn {
   background-color: #4CAF50;
   color: white;
@@ -82,24 +87,26 @@
     <!-- ################################################################################################ -->
     <article>
     
-     
-      <div class="input-group" style="margin-top: 60px;">
-        <form action="{% url 'search' %}" method="get" style="margin:20px">
-        
-        <div class="form-outline">
-          <input type="search" name="q" placeholder="Enter the item name to search" id="form1" class="form-control" style="margin-left: 216px;" />
-          
-        </div>
-        <button style="margin-right: 50px;margin-top: -34px;" type="submit" class="btn btn-primary">
-          <i class="fas fa-search"></i>
-        </button>
-        
-      </form>
-      </div>
+<!--     <div class="row col-md-6 col-lg-4 col-xl-3">-->
+<!--      <div class="input-group col-md-6 col-lg-4 col-xl-3" style="margin-top: 60px;">-->
+
+<!--      </div>-->
+<!--      </div>-->
     
 <br>
       <h3 class="heading">QUALITY FOOD ITEMS</h3>
       <p>Register with us and have quality food items at your door steps.</p>
+      <br>
+       <form action="{% url 'search' %}" method="get">
+
+        <div class="form-outline">
+          <input  style="margin-left:12px" width="20" type="search" name="q" placeholder="Enter the item name to search" id="form1" class="form-control" style="margin-left: 216px;" />
+        <button style="margin-right: -830px;margin-top: -34px;" type="submit" class="btn btn-primary">
+          <i class="fas fa-search"></i>
+        </button>
+        </div>
+
+      </form>
       <footer>
 
       </footer>

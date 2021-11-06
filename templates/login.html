@@ -10,13 +10,13 @@
 
 <section class="bg-light">
   <!-- <h1 class="text-info text-center">Please enter your details</h1> -->
-  <div class="container" style="padding: 2px;">
+  <div class="container col-md-12">
     <div class="row">
-      <div class="col-12">
-        <form action="login" method="post" style="padding: 132px;margin-left: 225px;">
+      <div class="col-md-12">
+        <form action="login" method="post">
           {% csrf_token %}
          
-          <div class="form-row">
+          <div class="form-row col-md-6">
             <div class="form-group col-md-6">
               <label name="username" for="name">Username</label>
               <input name="username" type="text" class="form-control" id="name" placeholder="Enter your username">
@@ -24,7 +24,7 @@
           </div>
 
 
-          <div class="form-row">
+          <div class="form-row col-md-6">
             <div class="form-group col-md-6">
               <label name="password" for="name">Password</label>
               <input name="password" type="password" class="form-control" id="name" placeholder="Enter your password">
@@ -32,7 +32,7 @@
           </div>
 
 
-          <div class="form-row">
+          <div class="form-row col-md-6">
           <div class="form-group col-md-6 text-center">
          <button type="submit" class="btn btn-info" style="width: 100%">LOGIN</button>
           </div>
