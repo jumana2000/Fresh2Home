@@ -16,4 +16,4 @@ Fresh2Home is an ecommerce website with variety of food items.
 
 
 # Demo
-This site will be available in http://fresh2home.pythonanywhere.com/
+This site will be available in this domain : http://fresh2home.pythonanywhere.com/
