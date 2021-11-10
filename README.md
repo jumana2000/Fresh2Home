@@ -16,4 +16,4 @@ Fresh2Home is an ecommerce website with variety of food items.
 
 
 # Demo
-This site will be available in https://jumana2000.github.io/Personal-Website/
+This site will be available in http://fresh2home.pythonanywhere.com/
